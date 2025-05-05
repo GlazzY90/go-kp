@@ -11,6 +11,7 @@ This is the result of one week Go Project. The descriptions contained in this ar
 ---
 ## Project Structure
 
+```
 go-api/
 ├── main.go
 ├── config/
@@ -35,6 +36,7 @@ go-api/
 ├── go.mod
 ├── go.sum
 └── README.md
+```
 
 ---
 ## 1. Project Setup
