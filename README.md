@@ -15,24 +15,29 @@ This is the result of one week Go Project. The descriptions contained in this ar
 go-api/
 ├── main.go
 ├── config/
-│   └── config.go
+│   └── database.go
 ├── controllers/
-│   └── task_handler.go
-│   └── user_handler.go
+│   └── auth_controller.go
+│   └── task_controller.go
 ├── middlewares/
-│   └── task.go
-│   └── user.go
+│   └── auth_middleware.go
 ├── models/
 │   └── task.go
 │   └── user.go
 ├── repos/
 │   └── task_repository.go
+│   └── task_repository_impl.go
 │   └── user_repository.go
+│   └── user_repository_impl.go
+├── routes/
+│   └── routes.go
 ├── services/
-│   └── task_service.go
-│   └── user_service.go
+│   └── auth.go
+│   └── task.go
 ├── utils/
-│   └── init.sql
+│   └── jwt.go
+│   └── password.go
+├── .env
 ├── go.mod
 ├── go.sum
 └── README.md
@@ -43,7 +48,7 @@ go-api/
 
 1. **Clone the repository**  
   ```sh
-  git clone https://github.com/yourusername/myapp.git
+  git clone https://github.com/GlazzY90/go-kp.git
   cd go-api
   ```
 
