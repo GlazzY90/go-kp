@@ -1,4 +1,3 @@
-// models/task.go
 package models
 
 import "time"

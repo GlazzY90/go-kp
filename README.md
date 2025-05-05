@@ -62,7 +62,40 @@ go-api/
   JWT_SECRET=
   ```
 
-## 2. Running the Project
+## 2. Running the database migration + Running the Project
   ```sh
   go run main.go
   ```
+
+## 3. How to test the API endpoints 
+
+Using Postman:
+1. Import a Postman collection or manually create requests.
+2. Set headers like Content-Type: application/json
+3. Test routes such as:
+  ```sh
+  GET    /api/users
+  POST   /api/login
+  POST   /api/register
+  ```
+Using curl:
+  ```sh
+  curl -X POST http://localhost:8080/api/register \
+  -H "Content-Type: application/json" \
+  -d '{"username":"testuser","password":"123456"}'
+  ```
+## 4. Any assumptions or decisions made during development 
+
+Clean Architecture:
+
+cmd/api for the application entrypoint
+
+internal/ for all business logic
+
+GORM + MySQL for ORM and persistence
+
+JWT for stateless authentication
+
+Repository Pattern to separate data access from business logic
+
+SQLYog can be used to inspect and manage the MySQL database

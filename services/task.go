@@ -19,22 +19,22 @@ type taskService struct {
 	repo repos.TaskRepository
 }
 
-// NewTaskService constructs a TaskService with the given repository.
+// NewTaskService constructs a TaskService
 func NewTaskService(r repos.TaskRepository) TaskService {
 	return &taskService{repo: r}
 }
 
-// Create persists a new task.
+// Create persists a new task
 func (s *taskService) Create(task *models.Task) error {
 	return s.repo.Create(task)
 }
 
-// GetAll returns all tasks belonging to the given user.
+// GetAll returns all tasks belonging to the given user
 func (s *taskService) GetAll(userID uint) ([]models.Task, error) {
 	return s.repo.FindAllByUser(userID)
 }
 
-// GetByID fetches a task by its ID, ensuring it belongs to the user.
+// GetByID fetches a task by its ID
 func (s *taskService) GetByID(id, userID uint) (*models.Task, error) {
 	task, err := s.repo.FindByID(id)
 	if err != nil {
@@ -46,7 +46,7 @@ func (s *taskService) GetByID(id, userID uint) (*models.Task, error) {
 	return task, nil
 }
 
-// Update modifies an existing task after verifying ownership.
+// Update modifies an existing task
 func (s *taskService) Update(id uint, updated *models.Task, userID uint) error {
 	task, err := s.repo.FindByID(id)
 	if err != nil {
@@ -64,7 +64,7 @@ func (s *taskService) Update(id uint, updated *models.Task, userID uint) error {
 	return s.repo.Update(task)
 }
 
-// Delete removes a task, ensuring it belongs to the user.
+// Delete removes a task
 func (s *taskService) Delete(id, userID uint) error {
 	task, err := s.repo.FindByID(id)
 	if err != nil {
